@@ -28,8 +28,33 @@
 
             myName = 100;
 
-            document.write("5 + 4 = ", 5 + 4, "<br />");
             document.write("5 + 4 = "+ 5 + 4, "<br />");
+            document.write("5 + 4 = ", 5 + 4, "<br />");
+            document.write("5 - 4 = ", 5 - 4, "<br />");
+            document.write("5 * 4 = ", 5 * 4, "<br />");
+            document.write("5 / 4 = ", 5 / 4, "<br />");
+            document.write("5 % 4 = ", 5 % 4, "<br />");
+
+            document.write("Max Num = ", Number.MAX_VALUE, "<br />");
+            document.write("Max Num = ", Number.MIN_VALUE, "<br />");
+
+            precisionTest = 0.1000000000000001;
+            precisionTest2 = 0.10000000000000001;
+            document.write("Precision Test at 16 decimal points", precisionTest + 0.1000000000000001, "<br/>");
+            document.write("Precision Test at 17 decimal points", precisionTest2 + 0.100000000000000001, "<br/>");
+
+            var balance = 1563.87;
+            document.write("Monthly Payment: ", (balance / 12).toFixed(2), "<br />")
+
+            var randNum = 5;
+            document.write("randNum++ = ", randNum++, "<br />");
+            document.write("++randNum = ", ++randNum, "<br />");
+            document.write("randNum-- = ", randNum--, "<br />");
+            document.write("--randNum = ", --randNum, "<br />");
+            document.write("randNum += 5 = ", randNum += 5, "<br />");
+
+            document.write("3 + 2 * 5 = ", 3 + 2 * 5, "<br />");
+            document.write("3 + (2 * 5) = ", (3 + 2) * 5, "<br />");
 
         </script>
 
