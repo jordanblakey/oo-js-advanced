@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>BOM Manipulation</title>
+        <style type="text/css" media="screen">
+            body {font-size: 1.6em;}
+            .hidden {display:none;}
+            .show {diplay:block !important; width: 100px; height: 100px; background:red;}
+            button {
+                border: 2px solid black; background: #e5e4e2;
+                font-size: .5em; font-weight: bold; color: black;
+                padding: .8em 2em;
+                margin-top: .4em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="sampDiv"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni labore possimus iste reprehenderit repellendus quia eum odit id <b>animi harum minima nihil</b> sunt repudiandae explicabo ab distinctio consequatur cupiditate illo modi, officiis natus quod adipisci numquam? Iusto iure pariatur ut, deserunt <em>facere mollitia</em> vel similique exercitationem cumque reiciendis <b>libero sit iste ipsum</b> dignissimos sunt ipsa vero aperiam inventore quidem suscipit quos neque quis voluptatem delectus. Quos dolores, rerum. Eligendi aliquam <em>iusto id ut quam perspiciatis</em> at obcaecati nesciunt ad, cupiditate nemo reiciendis velit sunt consequatur fuga quos saepe, esse similique facilis vitae eos necessitatibus libero temporibus, expedita et. Odit, earum.</p></div>
+        <img src="bg.jpg" alt=""><br />
+        <button id="goToGoogle">Go to Google</button><br />
+        <button id="forwardPage">Forward Page</button><br />
+        <button id="backPage">Back Page</button><br />
+        <button id="reload">Reload Page</button><br />
+
+        <script type="text/javascript">
+            document.write("Current URL: ", window.location.href, "<br />");
+            document.write("Current HOST: ", window.location.hostname, "<br />");
+            document.write("Current PATH: ", window.location.pathname, "<br />");
+            document.getElementById('goToGoogle').onclick = function(event){window.location.href = "http://google.com"}
+            document.getElementById('forwardPage').onclick = function(event){history.forward();}
+            document.getElementById('backPage').onclick = function(event){history.back();}
+            // history.go(2)
+            // history.go(-2)
+            document.getElementById('reload').onclick = function(event){window.location.reload(true);}
+
+
+        </script>
+
+    </body>
+</html>
