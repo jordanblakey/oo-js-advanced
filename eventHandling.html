@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Event Handling</title>
+        <style type="text/css" media="screen">
+            body {font-size: 1.6em;}
+            .hidden {display:none;}
+            .show {diplay:block !important; width: 100px; height: 100px; background:red;}
+            button {
+                border: 2px solid black; background: #e5e4e2;
+                font-size: .5em; font-weight: bold; color: black;
+                padding: .8em 2em;
+                margin-top: .4em;
+            }
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function openAlert(mess) {
+                alert(mess);
+            }
+        </script>
+        <a href="JavaScript:void(0)" onClick="alert('Hello!');">Say Hello</a>
+        <a href="JavaScript:void(0)" onClick="openAlert('Hi there, how are you?');">Custom onClick</a>
+        <a href="JavaScript:void(0)" onmouseover="this.style.color='red';">onmouseover</a>
+        <a href="JavaScript:void(0)" onmouseout="this.style.color='green';">onmouseout</a>
+        <a href="JavaScript:void(0)" ondblclick="this.text='You double clicked me!';">ondblclick</a>
+        <a href="JavaScript:void(0)" onmousedown="this.text='Don\'t press too hard!';">onmousedown</a>
+        <a href="JavaScript:void(0)" onmouseup="this.text='Don\'t let go!';">onmouseup</a>
+
+        <input type="text" value="Create alert with onChange" id="randInput" onChange="var dataEntered=document.getElementById('randInput').value; alert('User Typed: ' + dataEntered)">
+
+        <form action="#" id="sampForm">
+            <input type="text" id="charInput">
+            <p id="keyData">Key Data Here.</p>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form><br />
+
+        <img src="ntt-logo.png" id="logo" alt="">
+        <button type="button" id="logoButton" name="button">Get Logo</button>
+        <input type="text" id="mouseInput" size="30"><br />
+
+        Mouse X: <input type="text" id="mouseX"><br />
+        Mouse Y: <input type="text" id="mouseY"><br />
+
+        <button id="clearInputs">Clear Inputs</button>
+
+
+        <script type="text/javascript">
+            function getChar(event){
+                if(event.which == null){
+                    return String.fromCharCode(event.keyCode);
+                } else if (event.which != 0 && event.charCode != 0){
+                    return String.fromCharCode(event.which);
+                } else {
+                    return null;
+                }
+            }
+
+            document.getElementById('charInput').onkeypress =
+                function(event){
+                    var char = getChar(event || window.event)
+                    if(!char) return false;
+
+                    document.getElementById('keyData').innerHTML = char + " was clicked";
+                    return true;
+                }
+
+            document.getElementById('charInput').onfocus = function(event){
+                document.getElementById('keyData').innerHTML = "Input Gained Focus";
+            }
+            document.getElementById('charInput').onselect = function(event){
+                document.getElementById('keyData').innerHTML = "Text Selected";
+            }
+            document.getElementById('logoButton').onClick = function(event){
+                document.getElementById('logo').className = "show";
+            }
+            document.getElementById('logo').onmouseover = function(event){
+                document.getElementById('logo').src = "ntt-logo-horiz.png";
+                document.getElementById('mouseInput').value = "Mouse Over Image";
+            }
+            document.getElementById('logo').onmouseout = function(event){
+                document.getElementById('mouseInput').value = "";
+            }
+
+            document.body.onmousemove = function(e){
+                e = e || window.event;
+                var pageX = e.pageX;
+                var pageY = e.pageY;
+
+                if (pageX === undefined){
+                    pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                    pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+                }
+
+                document.getElementById('mouseX').value = pageX;
+                document.getElementById('mouseY').value = pageY;
+            };
+
+            document.getElementById('clearInputs').onClick = function (event){
+                var inputElements = document.getElementsByTagName('input');
+
+                for(var i = 0; i < inputElements.length; i++){
+                    if (inputElements[i].type == "text") {
+                        inputElements[i].value = "";
+                    }
+                }
+            };
+        </script>
+    </body>
+</html>
