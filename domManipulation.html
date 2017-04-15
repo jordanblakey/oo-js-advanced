@@ -17,22 +17,40 @@
     </head>
     <body>
         <div id="sampDiv"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni labore possimus iste reprehenderit repellendus quia eum odit id <b>animi harum minima nihil</b> sunt repudiandae explicabo ab distinctio consequatur cupiditate illo modi, officiis natus quod adipisci numquam? Iusto iure pariatur ut, deserunt <em>facere mollitia</em> vel similique exercitationem cumque reiciendis <b>libero sit iste ipsum</b> dignissimos sunt ipsa vero aperiam inventore quidem suscipit quos neque quis voluptatem delectus. Quos dolores, rerum. Eligendi aliquam <em>iusto id ut quam perspiciatis</em> at obcaecati nesciunt ad, cupiditate nemo reiciendis velit sunt consequatur fuga quos saepe, esse similique facilis vitae eos necessitatibus libero temporibus, expedita et. Odit, earum.</p></div>
-        <img src="bg.jpg" alt=""><br />
+        <img src="bg.jpg" alt="" id="background"><br />
         <button id="goToGoogle">Go to Google</button><br />
         <button id="forwardPage">Forward Page</button><br />
         <button id="backPage">Back Page</button><br />
         <button id="reload">Reload Page</button><br />
 
         <script type="text/javascript">
-            document.write("Current URL: ", window.location.href, "<br />");
-            document.write("Current HOST: ", window.location.hostname, "<br />");
-            document.write("Current PATH: ", window.location.pathname, "<br />");
-            document.getElementById('goToGoogle').onclick = function(event){window.location.href = "http://google.com"}
-            document.getElementById('forwardPage').onclick = function(event){history.forward();}
-            document.getElementById('backPage').onclick = function(event){history.back();}
-            // history.go(2)
-            // history.go(-2)
-            document.getElementById('reload').onclick = function(event){window.location.reload(true);}
+            var pElements = document.getElementsByTagName('p');
+            pElements[0].style.backgroundColor = '#ff0000';
+
+            document.childNodes[1].style.backgroundColor = "#0000ff";
+            var sampDiv = document.getElementById('sampDiv');
+            sampDiv.childNodes[0].style.color = "#00ff00";
+            sampDiv.childNodes[0].childNodes[1].style.backgroundColor = "#ffffff";
+
+            document.write("Node Type : ", sampDiv.childNodes[0].childNodes[0].nodeType, "<br />")
+            document.write("Node Name : ", sampDiv.childNodes[0].childNodes[0].nodeName, "<br />")
+            document.write("Node Name : ", sampDiv.childNodes[0].childNodes[1].nodeName, "<br />")
+
+            var image = document.getElementById('background');
+            document.write("Logo has alt: ", image.hasAttribute("alt"), "<br />");
+            image.setAttribute("alt", "NTT Logo 2");
+            document.write("Logo alt value: ", image.getAttribute("alt"), "<br />");
+
+            var attribList = document.getElementById('background').attributes;
+            for(i = 0; i < attribList.length; i++){
+                document.write("Attribute ", i, ": ", attribList[i].nodeName, ": ", attribList[i].nodeValue, "<br />")
+            };
+
+            var paragraph3 = document.createElement("p");
+            paragraph3.setAttribute("id", "paragraph3");
+            paragraph3.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, consequuntur.";
+            sampDiv.appendChild(paragraph3);
+            sampDiv.insertBefore(paragraph3, sampDiv.childNodes[0]);
 
 
         </script>

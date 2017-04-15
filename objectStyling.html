@@ -24,8 +24,11 @@
         <button id="chgBorderColor">Border Color</button>
 
         <script type="text/javascript">
-            
-
+            document.getElementById('chgBkColor').onclick = function(event){document.getElementById('sampDiv').style.backgroundColor = "#EFDECD";}
+            document.getElementById('chgBkImg').onclick = function(event){document.getElementById('sampDiv').style.backgroundImage = "url('https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTHULo4q-aEMni2MLHdTclBwGzjCXZITaPWNP7B53PU_XjVf9Fw')";}
+            document.getElementById('chgBorderStyle').onclick = function(event){document.getElementById('sampDiv').style.borderStyle = "solid";}
+            document.getElementById('chgBorderWidth').onclick = function(event){document.getElementById('sampDiv').style.borderWidth = "thick";}
+            document.getElementById('chgBorderColor').onclick = function(event){document.getElementById('sampDiv').style.borderColor = "red";}
         </script>
 
     </body>
